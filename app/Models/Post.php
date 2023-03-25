@@ -9,6 +9,9 @@ class Post extends Model
 {
     use HasFactory ,SoftDeletes;
 
+    protected $fillable = [ 'title' , 'description' ,'lat','lng' ,'image1_path' ,
+    'image2_path' , 'image3_path' ,'user_id' ,'type_id'];
+    protected $dates = ['deleted_at'];
     // public function user()
     // {
     //     return $this->belongsTo(User::class);

@@ -36,11 +36,11 @@ class AuthController extends Controller
             $success['name'] = $user->name;
             $success['message'] = 'User login successfully.';
             $success['data'] = User::where('email', $request->email)
-                ->with([
-                    'permissions:id,name',
-                    'roles:id,name',
-                    'roles.permissions:id,name',
-                ])
+                // ->with([
+                //     'permissions:id,name',
+                //     'roles:id,name',
+                //     'roles.permissions:id,name',
+                // ])
                 ->first();
             // activity()
             // 	->event('login')

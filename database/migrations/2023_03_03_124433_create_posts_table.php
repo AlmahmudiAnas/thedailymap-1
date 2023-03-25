@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('current_posstion');
+            $table->float('lat');
+            $table->float('lng');
             $table->string('image1_path');
-            $table->string('image2_path');
-            $table->string('image3_path');
+            $table->string('image2_path')->nullable();
+            $table->string('image3_path')->nullable();
             $table->softDeletes();
 
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');

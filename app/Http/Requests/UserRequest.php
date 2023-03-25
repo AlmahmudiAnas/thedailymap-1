@@ -24,19 +24,21 @@ class UserRequest extends FormRequest
 	 */
 	public function rules() {
 		return [
-			'name' => 'required',
+			'username' => 'required',
 			'status' => 'required',
 			'email' => [
 				'required',
 				'email',
 				Rule::unique('users', 'email')->ignore($this->id),
 			],
-			 
 			'password' => 'required|min:8',
-
 			'user_role' => 'required',
-
-
+			'device_name' => 'required',
+			'full_name' => 'required',
+			'country' => 'required',
+			'phone_number' => 'required',
+			'api_token' => 'required',
+			'birthday' => 'required',
 		];
 	}
 	protected function failedValidation(Validator $validator) {

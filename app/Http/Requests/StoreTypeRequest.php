@@ -3,7 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
+use Illuminate\Contracts\Validation\Validator;
 class StoreTypeRequest extends FormRequest
 {
     /**
@@ -13,7 +15,7 @@ class StoreTypeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +26,12 @@ class StoreTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+             "type_name"=>"required" , 'cat_id'=>"required"
         ];
     }
+    protected function failedValidation(Validator $validator) {
+		throw new HttpResponseException(
+			response()->json($validator->errors(), 422)
+		);
+	}
 }
