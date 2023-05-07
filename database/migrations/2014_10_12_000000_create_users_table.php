@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('username');
             $table->string('device_name');
             $table->string('full_name');
-            $table->string('status'); 
+            $table->string('status');
             $table->string('user_role');
             $table->string('country');
             $table->string('phone_number');
-            $table->string('api_token');
+           // $table->string('api_token');
             $table->timestamp('birthday');
             $table->softDeletes();
              $table->timestamp('email_verified_at')->nullable();
