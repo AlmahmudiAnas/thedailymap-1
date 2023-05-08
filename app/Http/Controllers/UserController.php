@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -50,6 +51,7 @@ class UserController extends Controller
     {
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
+        $input['api_token'] =Str::random(60);
 
         $user = User::create($input);
         // $user->assignRole($request->input('roles') ?? []);

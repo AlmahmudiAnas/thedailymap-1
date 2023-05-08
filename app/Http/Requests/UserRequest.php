@@ -37,7 +37,7 @@ class UserRequest extends FormRequest
 			'full_name' => 'required',
 			'country' => 'required',
 			'phone_number' => 'required',
-			'api_token' => 'required',
+			//'api_token' => 'required',
 			'birthday' => 'required',
 		];
 	}
